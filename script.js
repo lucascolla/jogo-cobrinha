@@ -62,10 +62,21 @@ function update(event) {
 function iniciarJogo() {
 
     //Quando atingir o limite da tela a cobra é teleportada para o outro lado
-    if (snake[0].x > (largura - 1) * box && direction == "right") snake[0].x = 0;
-    if (snake[0].x < 0 && direction == "left") snake[0].x = (largura - 1) * box;
-    if (snake[0].y > (altura - 1) * box && direction == "down") snake[0].y = 0;
-    if (snake[0].y < 0 && direction == "up") snake[0].y = (altura - 1) * box;
+    if (snake[0].x > (largura - 1) * box && direction == 'right') snake[0].x = 0;
+    if (snake[0].x > (largura - 1) * box && direction == 'up') snake[0].x = 0;
+    if (snake[0].x > (largura - 1) * box && direction == 'down') snake[0].x = 0;
+
+    if (snake[0].x < 0 && direction == 'left') snake[0].x = (largura - 1) * box;
+    if (snake[0].x < 0 && direction == 'up') snake[0].x = (largura - 1) * box;
+    if (snake[0].x < 0 && direction == 'down') snake[0].x = (largura - 1) * box;
+
+    if (snake[0].y > (altura - 1) * box && direction == 'down') snake[0].y = 0;
+    if (snake[0].y > (altura - 1) * box && direction == 'right') snake[0].y = 0;
+    if (snake[0].y > (altura - 1) * box && direction == 'left') snake[0].y = 0;
+
+    if (snake[0].y < 0 && direction == 'up') snake[0].y = (altura - 1) * box;
+    if (snake[0].y < 0 && direction == 'right') snake[0].y = (altura - 1) * box;
+    if (snake[0].y < 0 && direction == 'left') snake[0].y = (altura - 1) * box;
 
     //Verifica se a cobra colidiu com seu próprio corpo para finalizar o jogo!
     for (let i = 1; i < snake.length; i++) {
